@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Merenda</title>
+    <link rel="stylesheet" href="IniciarMerenda.css">
+</head>
+<body>
+    <div class="header">
+        <a href="../../Controle/controleMerenda.html">
+            <button class="back-button">
+                <!-- Ícone SVG de voltar em branco -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                    <path d="M19 11H7.41l5.29-5.29-1.42-1.42L3.59 12l7.29 7.29 1.42-1.42L7.41 13H19v-2z" fill="white"/>
+                </svg>
+            </button>
+        </a>
+        <h1>Controle de Merenda</h1>
+    </div>
+    
+        <div class="actions">
+            <button id="btn_iniciar" class="btn-primary">Iniciar Merenda</button>
+            <button id="btn_finalizar" class="btn-danger">Finalizar Merenda</button>
+        </div>
+ 
+    <!-- Modal -->
+    <div id="merendaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">Iniciar Merenda</div>
+            <div class="modal-body">
+                <label>Data:</label>
+                <input type="date" id="merendaData"><br><br>
+
+                <label>Turno:</label>
+                <select id="merendaTurno">
+                    <option value="Manhã">Manhã</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noite">Noite</option>
+                </select><br><br>
+
+                <label>Horário de Início:</label>
+                <input type="time" id="merendaHoraInicio"><br><br>
+
+                <label>Merenda:</label>
+                <select id="merendaComida">
+                  <!-- lista de comidas que ta salva no db -->
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-close" id="closeModal">Cancelar</button>
+                <button class="btn-save" id="saveMerenda">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exibição dos dados salvos -->
+    <div class="container">
+        <!-- Informações do evento -->
+        <div class="info" style="display: flex; justify-content: space-between; align-items: center;">
+            <!-- Informações da merenda -->
+            <div class="info-text">
+                <div><strong>Data:</strong> <span id="merenda-data">--/--/----</span></div>
+                <div><strong>Turno:</strong> <span id="merenda-turno">---</span></div>
+                <div><strong>Horário de Início:</strong> <span id="merenda-horario-inicio">--:--</span></div>
+            </div>
+            
+            <!-- Detalhes da merenda selecionada e imagem -->
+            <div class="merenda-details" style="display: flex; align-items: center;">
+                <div><strong>Merenda Selecionada:</strong> <span id="merenda-nome">---</span></div>
+                <img id="merenda-img" src="" alt="Merenda" style="width: 100px; height: 100px; object-fit: cover; margin-left: 20px; border-radius: 10px;">
+            </div>
+        </div>        
+        
+        <!-- Lista de alunos -->
+        <div class="alunos-list">
+            <strong>Lista de Alunos:</strong>
+            <input type="text" id="searchInput" class="search-box" placeholder="Pesquisar por nome ou matrícula">
+            <ul id="alunos">
+                <!-- Alunos serão carregados aqui dinamicamente -->
+                <li data-id="1">
+                    <div>
+                        <button class="btn-primary" onclick="marcarMerenda(1)">Merendou</button>
+                        <button class="btn-danger" onclick="naoMerendou(1)">Não Merendou</button>
+                    </div>
+                </li>
+            </ul>
+        </div>        
+    </div>
+    <!-- Caixa de Notificação -->
+<div id="notificationBox" class="notification-box" style="display: none;">
+    <span id="notificationMessage"></span>
+    <button id="closeNotification" class="close-btn">X</button>
+</div>
+
+
+    <script src="IniciarMerenda.js"></script>
+</body>
+</html>

@@ -1,0 +1,658 @@
+/* Estilos Gerais */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #3d3e4a;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-top: 0px;
+}
+
+.radio-btn-group {
+  flex: 1;
+  padding: 10px;
+  margin: 10px;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+/* Barra de pesquisa */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  margin: 0 auto;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.search-bar input,
+.search-bar button {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.search-bar input {
+  width: 70%;
+  border: 2px solid #ddd;
+}
+
+.search-bar button {
+  cursor: pointer;
+  width: 20%;
+}
+
+.search-bar .btn-primary {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+}
+
+.search-bar .btn-success {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.search-bar button:hover {
+  opacity: 0.8;
+}
+
+/* Estilo do container dos cards */
+.card-container {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Estilo para os cards */
+.card {
+  width: 200px;
+  background-color: #84CD95;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+}
+
+.card p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card .actions {
+  margin-top: auto;
+  display: flex;
+  width: 100%;
+  gap: 5px;
+  justify-content: center;
+}
+
+.card .actions button {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card .actions button:hover {
+  background-color: #0056b3;
+}
+
+.actions button:nth-child(2) {
+  background-color: red;
+  color: white;
+  border: none;
+}
+
+.modal input,
+.modal select,
+.modal button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 2px solid black;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.modal input#nome,
+.modal input#matricula {
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Estiliza o formulário do modal */
+#formAluno {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 1000;
+  width: 650px;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+/* Modal Header */
+.modal h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+/* Fechar Modal */
+.close {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close:hover {
+  color: red;
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 600px) {
+  .search-bar {
+      width: 90%;  /* Aumenta a largura da barra de pesquisa em telas pequenas */
+  }
+
+  .card {
+      width: 43%;  /* Cards ocupam toda a largura disponível */
+      height: auto;  /* Ajusta a altura para conteúdo dinâmico */
+  }
+
+  #formAluno {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .modal {
+      width: 90%;  /* Modal ocupa 90% da largura */
+  }
+
+  .modal img {
+      margin-right: 0;
+  }
+
+  .card-container {
+      gap: 10px;  /* Menor espaço entre os cards */
+      
+  }
+
+}
+
+
+#customChooseImageBtn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#customChooseImageBtn:hover {
+  background-color: #0056b3;
+}
+
+#imagemAluno {
+  display: none;
+}
+
+input[type=radio] {
+  opacity: 0;
+  position: absolute;
+}
+
+.containermenu {
+  display: flex;
+  flex-wrap: wrap;  /* Permite que os itens se movam para a próxima linha, se necessário */
+  justify-content: center; /* Centraliza os itens no container */
+  align-items: flex-start; /* Alinha os itens no topo do container */
+  width: 100%;
+  gap: 10px;  /* Espaço positivo entre os itens (ajustado de -10px para 10px) */
+  margin-top: -20px;  /* Ajusta a margem superior */
+}
+
+.custom-radio-label {
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 300;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", monospace;
+  height: 40px;
+  padding: 0 15px;  /* Ajusta o padding para melhor visualização */
+  position: relative;
+  flex-basis: calc(50% - 10px);  /* Cada item ocupa 50% da largura disponível, com o espaçamento */
+  flex-grow: 0;  /* Impede que o item cresça além da largura definida */
+  box-sizing: border-box;  /* Garante que o padding seja incluído no cálculo de largura */
+}
+
+.custom-radio-label::before {
+  background-color: #24252c;
+  background-image: repeating-linear-gradient(0deg, #181a29, #181a29 1px, #202436 1px, #202436 2px);
+  border-radius: 10px;
+  content: "";
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  transform: skew(-15deg);
+  transition: box-shadow 700ms;
+  width: 100%;
+  z-index: -1;
+}
+
+.custom-radio-label span {
+  transition: color 350ms;
+  z-index: 1;
+}
+
+.custom-radio-label svg {
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+  transform: skew(-15deg);
+}
+
+.custom-radio-label svg .blue rect {
+  fill: #fff;
+}
+
+.custom-radio-label svg .pink rect {
+  fill: #C74FE5;
+}
+
+.radio-btn-group label:hover span {
+  color: black;
+}
+
+
+/* Estilos gerais para todos os tipos de alerta */
+.alert {
+  position: fixed;
+  top: 10px; /* Ajuste a distância do topo */
+  right: 10px; /* Ajuste a distância da direita */
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  font-size: 16px;
+  z-index: 9999;
+  width: auto;
+  min-width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Alerta com fundo laranja e texto branco */
+.alert.alert-warning {
+  background-color: orange;
+  color: white;
+}
+
+/* Alerta com fundo verde e texto branco (sucesso) */
+.alert.alert-success {
+  background-color: green;
+  color: white;
+}
+
+/* Alerta com fundo vermelho e texto branco (erro) */
+.alert.alert-error {
+  background-color: red;
+  color: white;
+}
+
+/* Botões dentro do alerta */
+.alert-action-button {
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.alert-action-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Botão de fechar */
+.close-button {
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+}
+
+.close-button:hover {
+  background-color: #d32f2f;
+}
+
+.alert-button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap);
+.card,
+.content,
+body {
+	overflow: hidden;
+}
+body {
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: black;
+}
+.card,
+.container {
+	display: flex;
+	align-items: center;
+}
+.card {
+	width: 1280px;
+	height: 720px;
+	margin: 0;
+	justify-content: center;
+}
+.container-full,
+.content {
+	width: 1000px;
+	height: 562px;
+}
+.backgroundImage {
+	position: absolute;
+	width: 1000px;
+}
+.boyImage {
+	position: absolute;
+	width: 1000px;
+	z-index: 2;
+	animation: 200s linear infinite blur;
+}
+.content {
+	border-radius: 40px;
+	animation: 200s linear infinite brightness;
+}
+.container {
+	justify-content: center;
+}
+.container-full,
+.face {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+.container-full {
+	margin: 0;
+	justify-content: center;
+	transform: scale(1);
+	animation: 200s linear infinite zoom-in;
+}
+.cube,
+.face {
+	width: 870px;
+	height: 190px;
+}
+.cube {
+	position: relative;
+	transform-style: preserve-3d;
+	perspective: 480px;
+	transform-style: preserve-3d;
+	perspective-origin: 51% 70%;
+}
+.face,
+.hue {
+	position: absolute;
+}
+.face {
+	background: 0 0;
+	border: 0 solid #000;
+	opacity: 0.5;
+}
+.bottom,
+.top {
+	width: 870px;
+	height: 870px;
+}
+p {
+	white-space: nowrap;
+	overflow: hidden;
+	font-family: "Bebas Neue", sans-serif;
+	font-weight: 400;
+	font-size: calc(6em + (190px / 10) * 0.7);
+	padding-top: 20px;
+	color: #fff;
+}
+
+.front {
+	transform: translateZ(435px);
+	display: none;
+}
+.back {
+	transform: translateZ(-435px) rotateY(180deg) scaleX(-1);
+}
+.left {
+	transform: translateX(-435px) rotateY(-90deg) scaleX(-1);
+}
+.right {
+	transform: translateX(435px) rotateY(90deg) scaleX(-1);
+}
+.top {
+	transform: translateY(-435px) rotateX(90deg) scaleY(-1);
+}
+.bottom {
+	transform: translateY(-245px) rotateX(-90deg) scaleY(-1);
+}
+.left p {
+	margin-left: 480px;
+	animation: 200s linear infinite left;
+}
+.back p {
+	margin-left: -390px;
+	animation: 200s linear infinite back;
+}
+.right p {
+	margin-left: -1260px;
+	animation: 200s linear infinite right;
+}
+@keyframes left {
+	100% {
+		margin-left: -54000px;
+	}
+}
+@keyframes back {
+	100% {
+		margin-left: -54870px;
+	}
+}
+@keyframes right {
+	100% {
+		margin-left: -55740px;
+	}
+}
+.hue {
+	top: 0;
+	left: 0;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+	mix-blend-mode: overlay;
+	background: #1e5799;
+	background: radial-gradient(ellipse at center, #1e5799 0, #7db9e8 100%);
+	opacity: 1;
+}
+.hue.animated {
+	-webkit-animation: 8s infinite filter-animation;
+	animation: 8s infinite filter-animation;
+}
+.container-reflect {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 380px;
+	filter: blur(10px);
+}
+.container-reflect .cube {
+	perspective-origin: 51% -30%;
+}
+.container-reflect .back {
+	transform: translateZ(-435px) rotateY(180deg) scaleX(-1) scaleY(-1);
+}
+.container-reflect .left {
+	transform: translateX(-435px) rotateY(-90deg) scaleX(-1) scaleY(-1);
+}
+.container-reflect .right {
+	transform: translateX(435px) rotateY(90deg) scaleX(-1) scaleY(-1);
+}
+
+.container-reflect p {
+	transform: scaleY(70%);
+}
+
+@keyframes filter-animation {
+	0%,
+	100% {
+		filter: hue-rotate(0deg);
+	}
+	50% {
+		filter: hue-rotate(100deg);
+	}
+}
+@keyframes zoom-in {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(2.5);
+	}
+}
+@keyframes blur {
+	0% {
+		filter: blur(0px);
+	}
+	100% {
+		filter: blur(3px);
+	}
+}
+@keyframes brightness {
+	0% {
+		filter: brightness(1) contrast(1);
+	}
+	100% {
+		filter: brightness(0.8) contrast(1.3);
+	}
+}

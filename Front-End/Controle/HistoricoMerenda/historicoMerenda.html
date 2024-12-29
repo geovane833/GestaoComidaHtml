@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico</title>
+  <link href="historicoMerenda_style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="header">
+    <a href="../../Controle/controleMerenda.html">
+      <button class="back-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+          <path d="M19 11H7.41l5.29-5.29-1.42-1.42L3.59 12l7.29 7.29 1.42-1.42L7.41 13H19v-2z" fill="white"/>
+        </svg>
+      </button>
+    </a>
+    <h1>Histórico de Merenda</h1>
+  </div>
+
+  <div class="calendar">
+    <div class="controls">
+      <select id="monthSelect">
+        <option value="0">Janeiro</option>
+        <option value="1">Fevereiro</option>
+        <option value="2">Março</option>
+        <option value="3">Abril</option>
+        <option value="4">Maio</option>
+        <option value="5">Junho</option>
+        <option value="6">Julho</option>
+        <option value="7">Agosto</option>
+        <option value="8">Setembro</option>
+        <option value="9">Outubro</option>
+        <option value="10">Novembro</option>
+        <option value="11">Dezembro</option>
+      </select>
+      <select id="yearSelect"></select>
+      <button id="resetCalendar">Reset Calendar</button>
+    </div>
+
+    <div class="calendar-header">
+      <div class="day-name">Domingo</div>
+      <div class="day-name">Segunda</div>
+      <div class="day-name">Terça</div>
+      <div class="day-name">Quarta</div>
+      <div class="day-name">Quinta</div>
+      <div class="day-name">Sexta</div>
+      <div class="day-name">Sábado</div>
+    </div>
+    <div class="calendar-grid"></div>
+  </div>
+
+<!-- Modal para adicionar notas -->
+
+<div id="noteModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Histórico de Merendas</h3>
+    <!-- Container para a imagem e o texto -->
+    <div class="modal-header">
+      <div class="modal-text">
+        <p id="selectedDate"></p>
+      </div>
+    </div>
+    <div id="historicoMerendas" class="historico-merendas">
+      <table id="historicoTable">
+        <thead>
+          <tr>
+            <th>Imagem</th>
+            <th>Aluno</th>
+            <th>Matricula</th>
+            <th>Curso</th>
+            <th>Turno</th>
+            <th>Status</th>
+            <th>Quantidade</th>
+            <th>Horário de Registro</th>
+            <th>Observação</th>
+            <th>Imagem da Comida</th>
+            <th>Nome da Comida</th>
+          </tr>
+        </thead>
+        <tbody id="historicoContainer">
+          <!-- Histórico de merendas será preenchido aqui -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+  <script src="historicoMerenda_scripts.js"></script>
+</body>
+</html>

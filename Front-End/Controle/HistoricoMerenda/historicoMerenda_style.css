@@ -1,0 +1,350 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #3d3e4a;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 0px;
+}
+
+  .calendar {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+  }
+  .calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .day-name {
+    padding: 10px 0;
+    background-color: #e0e6ef;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+
+  h2 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 1em;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  #monthSelect {
+    font-size: 0.9em;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background: #f7f9fc;
+    color: #333;
+    outline: none;
+  }
+  .controls select {
+    padding: 8px;
+    margin: 0 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  
+  .controls select:focus {
+    border-color: #007bff; /* Borda ao focar */
+    outline: none; /* Remove o outline padrão */
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre controles */
+  }
+  
+
+  #resetCalendar {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  #resetCalendar:hover {
+    background-color: #ff5252;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+
+  .day {
+    padding: 15px;
+    background-color: #f0f3f7;
+    color: #333;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    min-height: 70px;
+    position: relative;
+    font-size: 0.9em;
+  }
+
+  .day:hover {
+    background-color: #e0e6ef;
+  }
+
+  .note {
+    font-size: 0.75em;
+    margin-top: 5px;
+    color: #555;
+  }
+
+  .note-entry {
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    margin-top: 5px;
+  }
+
+/* Estilo para a imagem e o texto dentro do cabeçalho do modal */
+.modal-header {
+  display: flex;
+  align-items: center; /* Para alinhar a imagem e o texto */
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.modal-image {
+  width: 80px; /* Tamanho reduzido da imagem */
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px; /* Espaço entre a imagem e o texto */
+}
+
+.modal-text {
+  font-size: 18px;
+  color: #555;
+}
+
+.modal-text p {
+  margin: 5px 0;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+/* Estilo do conteúdo do Modal */
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  width: auto; /* Largura automática */
+  max-width: 90%; /* Largura máxima de 90% da tela */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(0.9);
+  opacity: 0;
+  animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Estilo para a imagem e o texto dentro do cabeçalho do modal */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.modal-image {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.modal-text {
+  font-size: 18px;
+  color: #555;
+}
+
+.modal-text p {
+  margin: 5px 0;
+}
+
+/* Estilo do botão de fechar */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 35px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #e74c3c;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#historicoTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: left;
+}
+
+#historicoTable th, #historicoTable td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  color: #333;
+}
+
+#historicoTable th {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+#historicoTable tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+#historicoTable td:last-child {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+}
+
+/* Contêiner que envolve a tabela */
+#historicoMerendas {
+  max-height: 600px; /* Ajuste a altura máxima conforme necessário */
+  overflow-y: auto; /* Ativa a rolagem vertical quando necessário */
+  overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+/* Estilo da tabela */
+#historicoTable {
+  width: 100%;
+  border-collapse: collapse; /* Para as bordas das células ficarem colapsadas */
+}
+
+#historicoTable td, #historicoTable th {
+  border: 1px solid #ccc; /* Adiciona borda para as células */
+  padding: 8px; /* Espaçamento dentro das células */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+
+
+
+
+  .close:hover {
+    color: #555;
+  }
+
+  textarea, input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+
+  #saveNote {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.2s;
+  }
+
+  #saveNote:hover {
+    background-color: #43a047;
+  }
+
+  .header {
+    background-color: #28a745;
+    color: #fff;
+    padding: 20px 10px; /* Aumenta o padding para garantir altura suficiente */
+    display: flex;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+}
+
+.back-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    flex-grow: 1; /* Faz com que o título ocupe o espaço restante */
+}
+
